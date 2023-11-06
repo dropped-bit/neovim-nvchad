@@ -58,7 +58,7 @@ local plugins = {
         "ruff",
         "pyright",
         "html-lsp",
-        "css-ls",
+        "css-language-server",
         "stylua",
         "tailwindcss-language-server",
         "lua_language-server",
@@ -86,5 +86,20 @@ local plugins = {
       },
     },
   },
+  {
+    "AckslD/swenv.nvim",
+    lazy = true,
+    config = function()
+      require('swenv').setup({
+        post_set_venv = function()
+        vim.cmd("LspRestart")
+        end,
+      })
+    end,
+  },
+  {
+    "stevearc/dressing.nvim",
+    lazy = false
+  }
 }
 return plugins

@@ -13,7 +13,8 @@ M.general = {
     ["<C-Up>"] = {":resize -2<CR>", opts},
     ["<C-Down>"] = {":resize +2<CR>", opts},
     ["<C-Left>"] = {":vertical resize -2<CR>", opts},
-    ["<C-Right>"] = {":vertical resize +2<CR>", opts}
+    ["<C-Right>"] = {":vertical resize +2<CR>", opts},
+    ["<leader>pe"] = {":lua require('swenv.api').pick_venv()<CR>", "Choose python environment"}
   },
   i = {
     ["jk"] = {"<ESC>", "escape insert mode", opts = { nowait = true }},
@@ -53,4 +54,12 @@ M.dap_python = {
   }
 }
 
+-- M.swenv = {
+--   plugin = true,
+--   n = {
+--     ["<leader>pe"] = {
+--       "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose python environment"
+--     }
+--   }
+-- }
 return M
