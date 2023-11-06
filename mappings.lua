@@ -10,11 +10,10 @@ M.general = {
     ["<C-j>"] = {" <cmd> TmuxNavigateDown<CR> ", "window down"},
     ["<C-k>"] = {" <cmd> TmuxNavigateUp<CR> ", "window up"},
     -- Resize with arrows
-    ["<C-Up>"] = {":resize -2<CR>", opts},
-    ["<C-Down>"] = {":resize +2<CR>", opts},
-    ["<C-Left>"] = {":vertical resize -2<CR>", opts},
-    ["<C-Right>"] = {":vertical resize +2<CR>", opts},
-    ["<leader>pe"] = {":lua require('swenv.api').pick_venv()<CR>", "Choose python environment"}
+    ["<C-Up>"] = {":resize -2<CR>", "description", opts},
+    ["<C-Down>"] = {":resize +2<CR>", "description2", opts},
+    ["<C-Left>"] = {":vertical resize -2<CR>", "description3", opts},
+    ["<C-Right>"] = {":vertical resize +2<CR>", "description5", opts}
   },
   i = {
     ["jk"] = {"<ESC>", "escape insert mode", opts = { nowait = true }},
@@ -54,12 +53,4 @@ M.dap_python = {
   }
 }
 
--- M.swenv = {
---   plugin = true,
---   n = {
---     ["<leader>pe"] = {
---       "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose python environment"
---     }
---   }
--- }
 return M
