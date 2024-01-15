@@ -42,8 +42,9 @@ local plugins = {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python"},
+    "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
+    ft = { "python" },
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -54,7 +55,7 @@ local plugins = {
       ensure_installed = {
         "black",
         "debugpy",
-        "mypy",
+        -- "mypy",
         "ruff",
         "pyright",
         "html-lsp",
@@ -63,6 +64,7 @@ local plugins = {
         "tailwindcss-language-server",
         "lua_language-server",
         "bash-language-server",
+        "prettierd",
       },
     },
   },
@@ -86,5 +88,41 @@ local plugins = {
       },
     },
   },
+  {
+    "ThePrimeagen/harpoon",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      -- set keymaps
+      local keymap = vim.keymap -- for conciseness
+
+      keymap.set(
+        "n",
+        "<leader>o",
+        "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
+        { desc = "Mark file with harpoon" }
+      )
+      keymap.set(
+        "n",
+        "<leader>z",
+        "<cmd>lua require('harpoon.mark').add_file()<cr>",
+        { desc = "Mark file with harpoon" }
+      )
+      keymap.set(
+        "n",
+        "<leader>u",
+        "<cmd>lua require('harpoon.ui').nav_next()<cr>",
+        { desc = "Go to next harpoon mark" }
+      )
+      keymap.set(
+        "n",
+        "<leader>i",
+        "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
+        { desc = "Go to previous harpoon mark" }
+      )
+      keymap.set("n", "<leader>1", "<cmd>lua require('harpoon.ui').gotoTerminal(1)<cr>", { desc = "Go to file 1" })
+    end,
+  }
 }
 return plugins
